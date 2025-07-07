@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-black to-gray-900">
+    <section id="contact-section" className="py-20 bg-gradient-to-br from-black to-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16 text-white">
@@ -45,7 +45,8 @@ const Contact: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl blur-xl"></div>
               <form
-                onSubmit={handleSubmit}
+                action="https://formspree.io/f/movwoaar"
+                method="POST"
                 className="relative z-10 p-8 rounded-2xl bg-gradient-to-br from-gray-900/90 to-black/90 border border-green-500/30"
               >
                 <div className="space-y-6">
@@ -57,8 +58,6 @@ const Contact: React.FC = () => {
                       type="text"
                       id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-green-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
                       placeholder="Enter your full name"
@@ -73,8 +72,6 @@ const Contact: React.FC = () => {
                       type="email"
                       id="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-green-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
                       placeholder="Enter your email address"
@@ -88,8 +85,6 @@ const Contact: React.FC = () => {
                     <textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleChange}
                       required
                       rows={6}
                       className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-green-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 resize-none"
@@ -99,20 +94,12 @@ const Contact: React.FC = () => {
 
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full py-4 px-6 rounded-lg bg-gradient-to-r from-lime-500 to-green-600 text-white font-medium hover:from-lime-400 hover:to-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-4 px-6 rounded-lg bg-gradient-to-r from-lime-500 to-green-600 text-white font-medium hover:from-lime-400 hover:to-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 hover:scale-105"
                   >
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center gap-2">
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center justify-center gap-2">
-                        <Send className="w-5 h-5" />
-                        Send Message
-                      </span>
-                    )}
+                    <span className="flex items-center justify-center gap-2">
+                      <Send className="w-5 h-5" />
+                      Send Message
+                    </span>
                   </button>
                 </div>
               </form>

@@ -2,6 +2,14 @@ import React from 'react';
 import { Github, Linkedin, Download, ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  // Smooth scroll handler
+  const handleGoToContact = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black" style={{ fontFamily: 'Times New Roman, serif' }}>
       {/* Clean Minimal Background */}
@@ -49,17 +57,22 @@ Ansible and Git. Currently expanding expertise in Terraform, Prometheus, Grafana
           {/* Executive Actions with Better Spacing */}
           <div className="space-y-16">
             <div className="flex flex-col sm:flex-row justify-center gap-12">
-              <button className="group px-16 py-6 bg-gradient-to-r from-lime-500 to-green-600 text-white font-medium text-lg hover:from-lime-400 hover:to-green-500 transition-all duration-300 hover:scale-105">
-                <span className="flex items-center gap-4">
-                  Download Resume
-                  <Download className="w-5 h-5" />
-                </span>
-              </button>
+              <a
+                href="https://drive.google.com/file/d/1k0ba5I-zzMdjy_VdgxzkCWrjcnPVI_aO/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 mt-6 bg-gradient-to-r from-lime-400 to-emerald-500 text-white font-semibold rounded-lg shadow-md hover:from-lime-500 hover:to-emerald-600 transition"
+              >
+                View Resume
+              </a>
               
-              <button className="group px-16 py-6 border border-green-500/40 text-green-400 font-medium text-lg hover:border-green-400 hover:bg-green-500/5 transition-all duration-300">
-                <span className="flex items-center gap-4">
-                  <ArrowRight className="w-5 h-5" />
-                </span>
+              <button
+                className="group px-16 py-6 border border-green-500/40 text-green-400 font-medium text-lg hover:border-green-400 hover:bg-green-500/5 transition-all duration-300 flex items-center gap-4"
+                onClick={() => window.open('https://www.linkedin.com/in/harshitha-g-m-27b128279/', '_blank', 'noopener noreferrer')}
+                type="button"
+              >
+                <span>Go to LinkedIn</span>
+                <ArrowRight className="w-5 h-5" />
               </button>
             </div>
 
